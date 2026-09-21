@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ning Aroma | 尋回妳的專屬氣味標籤</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', 'Noto Serif TC', serif; background-color: #FFFDFB; }
+        .font-serif-tc { font-family: 'Noto Serif TC', serif; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- 1. 導覽列 Navigation -->
+    <nav class="border-b border-pink-50 bg-white/90 sticky top-0 z-40 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold tracking-widest text-stone-800 font-serif-tc">NING AROMA</a>
+            <div class="hidden md:flex space-x-10 text-sm tracking-wider text-stone-600">
+                <a href="#" class="hover:text-pink-600 transition-colors font-medium">首頁 Home</a>
+                <a href="#" class="hover:text-pink-600 transition-colors font-medium">香氛系列 Shop All</a>
+                <a href="#" class="hover:text-pink-600 transition-colors font-medium">客製調香 Bespoke</a>
+                <a href="#" class="hover:text-pink-600 transition-colors font-medium">香氛故事 Editorial</a>
+                <a href="#" class="hover:text-pink-600 transition-colors font-medium">會員中心 Account</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative p-2 text-stone-700 hover:text-pink-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-pink-400 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. 主視覺區 Hero Area -->
+    <header class="relative bg-[#FFF0F0] overflow-hidden py-24 md:py-32">
+        <div class="absolute inset-0 bg-[radial-gradient(#E5A9A9_1px,transparent_1px)] [background-size:32px_32px] opacity-15"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs uppercase tracking-widest text-pink-700 font-semibold bg-pink-50 px-3 py-1.5 rounded-full border border-pink-100">Bespoke Fragrance</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif-tc text-stone-900 leading-tight">尋回妳的專屬氣味標籤，<br><span class="text-[#E5A9A9]">解鎖法式感性。</span></h1>
+                <p class="text-stone-600 text-base md:text-lg leading-relaxed max-w-xl">KDCA 認證調香師精準調配。為 25+ 現代女性打造的日常實用美學，讓精緻的香氣成為妳最隱形的自信外衣。</p>
+                <div class="pt-4">
+                    <button class="bg-stone-900 hover:bg-[#E5A9A9] text-white text-sm font-semibold tracking-wider px-8 py-4 rounded-full shadow-xl shadow-stone-900/10 transition-all transform hover:-translate-y-0.5">探索命定香氣 ──</button>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="w-72 h-96 md:w-80 md:h-[420px] bg-gradient-to-tr from-pink-50 to-white rounded-2xl shadow-2xl border-4 border-white flex flex-col items-center justify-center text-center p-6 transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div class="w-24 h-40 border-2 border-[#D4AF37] rounded-md relative flex items-center justify-center mb-6">
+                        <div class="w-12 h-6 border-b-2 border-[#D4AF37] absolute -top-6 rounded-t-sm bg-gradient-to-b from-[#D4AF37] to-transparent opacity-30"></div>
+                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-bold rotate-90">NING AROMA</span>
+                    </div>
+                    <p class="font-serif-tc text-stone-800 font-bold tracking-wide">微光絲絨 淡香精</p>
+                    <p class="text-xs text-pink-500 mt-1">Eau de Parfum</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. 主力推薦商品區 (限 4 款) -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center max-w-xl mx-auto mb-16 space-y-3">
+            <h2 class="text-3xl font-serif-tc text-stone-900 font-bold tracking-wide">本季主力香氛推薦</h2>
+            <p class="text-sm text-stone-500">精選四款最適合現代亞洲女性的經典香調，線上下單享安心退換保證。</p>
+            <div class="w-12 h-0.5 bg-[#D4AF37] mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- 商品 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-pink-50 shadow-sm hover:shadow-xl hover:border-pink-200 transition-all duration-300 flex flex-col group">
+                <div class="h-64 bg-[#FFF9F9] flex items-center justify-center relative overflow-hidden">
+                    <span class="absolute top-4 left-4 bg-[#E5A9A9] text-white text-[10px] font-bold tracking-widest px-2.5 py-1 rounded-full uppercase">經典熱銷</span>
+                    <div class="w-16 h-28 border border-[#D4AF37] rounded group-hover:scale-105 transition-transform duration-500"></div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif-tc font-bold text-stone-900 text-base">微光絲絨・大馬士革玫瑰淡香精</h3>
+                        <p class="text-xs text-pink-500 mt-1">花香調 / 職場與日常經典</p>
+                        <p class="text-xs text-stone-500 mt-3 leading-relaxed">清晨沾著露水的玫瑰，交織優雅絲綢香，適合每個想展現自信的晨間。</p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between">
+                        <span class="font-semibold text-stone-900 text-base">$2,280</span>
+                        <button onclick="addToCart('微光絲絨・大馬士革玫瑰淡香精', 2280)" class="bg-stone-900 hover:bg-[#E5A9A9] text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-colors">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 商品 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-pink-50 shadow-sm hover:shadow-xl hover:border-pink-200 transition-all duration-300 flex flex-col group">
+                <div class="h-64 bg-[#FFF9F9] flex items-center justify-center relative overflow-hidden">
+                    <span class="absolute top-4 left-4 bg-stone-800 text-white text-[10px] font-bold tracking-widest px-2.5 py-1 rounded-full uppercase">調香師推薦</span>
+                    <div class="w-16 h-28 border border-[#D4AF37] rounded group-hover:scale-105 transition-transform duration-500"></div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif-tc font-bold text-stone-900 text-base">微醺伯爵・柑橘焦糖淡香水</h3>
+                        <p class="text-xs text-pink-500 mt-1">果香調 / 週末放鬆與約會</p>
+                        <p class="text-xs text-stone-500 mt-3 leading-relaxed">手作焦糖的濃厚韻味，交織佛手柑的清香，是犒賞自己的優雅香氣實驗。</p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between">
+                        <span class="font-semibold text-stone-900 text-base">$1,980</span>
+                        <button onclick="addToCart('微醺伯爵・柑橘焦糖淡香水', 1980)" class="bg-stone-900 hover:bg-[#E5A9A9] text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-colors">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 商品 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-pink-50 shadow-sm hover:shadow-xl hover:border-pink-200 transition-all duration-300 flex flex-col group">
+                <div class="h-64 bg-[#FFF9F9] flex items-center justify-center relative overflow-hidden">
+                    <span class="absolute top-4 left-4 bg-pink-100 text-pink-800 text-[10px] font-bold tracking-widest px-2.5 py-1 rounded-full uppercase">高質感知性</span>
+                    <div class="w-16 h-28 border border-[#D4AF37] rounded group-hover:scale-105 transition-transform duration-500"></div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif-tc font-bold text-stone-900 text-base">暮色冥想・烏木與白茶淡香精</h3>
+                        <p class="text-xs text-pink-500 mt-1">木質調 / 內斂沉穩與獨立</p>
+                        <p class="text-xs text-stone-500 mt-3 leading-relaxed">沉穩古老的木質香氣，任由東方桂花幽幽入魂，帶來靈魂深處的平靜。</p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between">
+                        <span class="font-semibold text-stone-900 text-base">$2,400</span>
+                        <button onclick="addToCart('暮色冥想・烏木與白茶淡香精', 2400)" class="bg-stone-900 hover:bg-[#E5A9A9] text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-colors">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 商品 4 -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-pink-50 shadow-sm hover:shadow-xl hover:border-pink-200 transition-all duration-300 flex flex-col group">
+                <div class="h-64 bg-[#FFF9F9] flex items-center justify-center relative overflow-hidden">
+                    <span class="absolute top-4 left-4 bg-[#D4AF37] text-white text-[10px] font-bold tracking-widest px-2.5 py-1 rounded-full uppercase">限時限量</span>
+                    <div class="w-16 h-28 border border-[#D4AF37] rounded group-hover:scale-105 transition-transform duration-500"></div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                        <h3 class="font-serif-tc font-bold text-stone-900 text-base">2026 感性回歸・法式限定禮盒</h3>
+                        <p class="text-xs text-pink-500 mt-1">限定款 / 高級尊榮送禮</p>
+                        <p class="text-xs text-stone-500 mt-3 leading-relaxed">法式現代美學的極致層次，含客製化香氛與指緣精油，精緻送禮首選。</p>
+                    </div>
+                    <div class="pt-2 flex items-center justify-between">
+                        <span class="font-semibold text-stone-900 text-base">$3,600</span>
+                        <button onclick="addToCart('2026 感性回歸・法式限定禮盒', 3600)" class="bg-stone-900 hover:bg-[#E5A9A9] text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-colors">立即搶購</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="sidebar-cart" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col border-l border-pink-50">
+        <div class="p-6 border-b border-pink-50 flex items-center justify-between">
+            <h3 class="font-serif-tc font-bold text-stone-900 text-lg">您的購物車</h3>
+            <button onclick="toggleCart()" class="text-stone-400 hover:text-pink-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+        </div>
+        
+        <div class="bg-pink-50/30 p-4 border-b border-pink-100 text-center">
+            <p id="shipping-notice" class="text-xs text-pink-900 font-medium">再購買 $3,000 即可享有免運優惠</p>
+            <div class="w-full bg-stone-100 h-1.5 rounded-full mt-2 overflow-hidden">
+                <div id="shipping-progress" class="bg-[#E5A9A9] h-full w-0 transition-all duration-500"></div>
+            </div>
+        </div>
+
+        <div id="cart-items" class="p-6 flex-1 overflow-y-auto space-y-4 text-sm text-stone-500">
+            購物車目前是空的。
+        </div>
+
+        <div class="p-6 border-t border-pink-50 space-y-4">
+            <div class="flex items-center justify-between font-medium text-stone-900">
+                <span>小計 Total</span>
+                <span id="cart-total" class="text-lg font-bold">$0</span>
+            </div>
+            <button class="w-full bg-stone-900 hover:bg-stone-800 text-white text-sm font-semibold py-4 rounded-full transition-colors tracking-wider">前往快速結帳</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        const FREE_SHIPPING_THRESHOLD = 3000;
+
+        function toggleCart() {
+            const cartSidebar = document.getElementById('sidebar-cart');
+            cartSidebar.classList.toggle('translate-x-full');
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+            const cartSidebar = document.getElementById('sidebar-cart');
+            if (cartSidebar.classList.contains('translate-x-full')) {
+                toggleCart();
+            }
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const itemsContainer = document.getElementById('cart-items');
+            const totalContainer = document.getElementById('cart-total');
+            const notice = document.getElementById('shipping-notice');
+            const progress = document.getElementById('shipping-progress');
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '購物車目前是空的。';
+                totalContainer.innerText = '$0';
+                notice.innerText = `再購買 $${FREE_SHIPPING_THRESHOLD.toLocaleString()} 即可享有免運優惠`;
+                progress.style.width = '0%';
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalContainer.innerText = `$${total.toLocaleString()}`;
+
+            itemsContainer.innerHTML = cart.map((item, idx) => `
+                <div class="flex justify-between items-center bg-pink-50/10 p-3 rounded-xl border border-pink-50">
+                    <div>
+                        <p class="font-medium text-stone-900">${item.name}</p>
+                        <p class="text-xs text-pink-600 mt-0.5">$${item.price.toLocaleString()}</p>
+                    </div>
+                    <button onclick="removeItem(${idx})" class="text-xs text-stone-400 hover:text-red-700">刪除</button>
+                </div>
+            `).join('');
+
+            if (total >= FREE_SHIPPING_THRESHOLD) {
+                notice.innerText = '✨ 恭喜妳！已達免運費門檻';
+                progress.style.width = '100%';
+            } else {
+                let diff = FREE_SHIPPING_THRESHOLD - total;
+                notice.innerText = `再購買 $${diff.toLocaleString()} 即可享有免運優惠`;
+                let percentage = (total / FREE_SHIPPING_THRESHOLD) * 100;
+                progress.style.width = `${percentage}%`;
+            }
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+    </script>
+</body>
+</html>
