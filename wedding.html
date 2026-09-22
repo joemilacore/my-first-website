@@ -1,122 +1,148 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>頂級絲綢婚紗 | 織進一生的甜蜜與永恆</title>
-    <!-- 引入 Tailwind CSS 實現精緻現代感排版 -->
+    <title>Ning Aroma | 頂級絲綢婚紗訂製沙龍</title>
+    <!-- 引入 Tailwind CSS -->
     <script src="https://tailwindcss.com"></script>
     <style>
         @import url('https://googleapis.com');
         body { font-family: 'Noto Serif TC', serif; }
+        .cart-slide { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .fade-in { animation: fadeIn 1.5s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="bg-[#FAF8F5] text-[#4A3E3D]">
+<body class="bg-[#FFFBFB] text-[#4A3F3A] antialiased">
 
-    <!-- 導覽列 -->
-    <nav class="py-6 px-8 flex justify-between items-center border-b border-[#EAE3DA] bg-white/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="text-xl font-bold tracking-widest text-[#8C6D58]">SILK & ROMANCE</div>
-        <div class="space-x-8 text-sm tracking-wide">
-            <a href="#about" class="hover:text-[#8C6D58] transition">關於工藝</a>
-            <a href="#concept" class="hover:text-[#8C6D58] transition">品牌理念</a>
-            <a href="#contact" class="hover:text-[#8C6D58] transition">預約體驗</a>
+    <!-- 頂部電商重要公告欄 (增強轉換) -->
+    <div class="bg-[#D4AF37] text-white text-center text-xs tracking-widest py-2 px-4 font-light">
+        Ning Aroma 奢華婚紗季｜線上預約試穿即享專屬一對一高訂量身諮詢，付訂再贈真絲頭紗
+    </div>
+
+    <!-- 導覽列 (Sitemap 5大選單) -->
+    <nav class="py-5 px-6 md:px-12 flex justify-between items-center bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-[#F5E6E8]">
+        <a href="#" class="text-xl font-bold tracking-[0.2em] text-[#D4AF37]">Ning Aroma</a>
+        <!-- Sitemap 5大核心選單 -->
+        <div class="hidden lg:flex space-x-8 text-sm tracking-widest font-light">
+            <a href="#" class="hover:text-[#D4AF37] transition text-[#D4AF37] font-medium">首頁入口</a>
+            <a href="#about" class="hover:text-[#D4AF37] transition">頂級工藝</a>
+            <a href="#collection" class="hover:text-[#D4AF37] transition">經典典藏</a>
+            <a href="#booking" class="hover:text-[#D4AF37] transition">沙龍預約</a>
+            <a href="#faq" class="hover:text-[#D4AF37] transition">試穿須知</a>
+        </div>
+        <!-- 購物車 -->
+        <div class="flex items-center">
+            <button onclick="toggleCart()" class="relative p-2 text-[#4A3F3A] hover:text-[#D4AF37] transition">
+                <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                </svg>
+                <span id="cart-count" class="absolute top-0 right-0 bg-[#FFB6C1] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+            </button>
         </div>
     </nav>
 
-    <!-- 首頁主視覺區 (Hero Section) -->
-    <header class="relative h-[85vh] flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(250, 248, 245, 0.7), rgba(250, 248, 245, 0.5)), url('https://unsplash.com');">
-        <div class="text-center px-4 max-w-3xl">
-            <span class="text-xs uppercase tracking-[0.3em] text-[#8C6D58] font-medium block mb-4">The Pinnacle of Silk Gowns</span>
-            <h1 class="text-3xl md:text-5xl font-light tracking-wide leading-relaxed mb-6">
-                將一生的甜蜜，<br class="md:hidden">織進最溫柔的絲綢裡。
+    <!-- 首頁主無視覺區 (Hero Banner) -->
+    <header class="relative h-[85vh] flex items-center bg-cover bg-center" style="background-image: linear-gradient(rgba(255, 245, 245, 0.45), rgba(255, 245, 245, 0.35)), url('https://unsplash.com');">
+        <div class="max-w-4xl mx-auto text-center px-6 fade-in">
+            <span class="text-xs uppercase tracking-[0.4em] text-[#D4AF37] font-semibold block mb-4">THE PINNACLE OF SILK COUTURE</span>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-light tracking-widest leading-relaxed mb-6">
+                將一生的甜蜜，<br class="hidden md:block">織進最溫柔的絲綢裡。
             </h1>
-            <p class="text-sm md:text-base text-[#7A6A68] leading-relaxed tracking-wider mb-8 font-light">
-                頂級設計師與二十年巨擘裁縫攜手，用指尖的溫度，為妳定格永恆的幸福。
+            <p class="text-sm md:text-base text-[#6E5D5C] max-w-xl mx-auto leading-loose tracking-wider mb-10 font-light">
+                專為 25-50 歲質感女性打造。當頂級設計師的優雅與20年大師的純絲工藝交織，為妳量身披上溫染歲月的永恆信任。
             </p>
-            <a href="#contact" class="inline-block bg-[#8C6D58] text-white px-8 py-3 text-sm tracking-widest hover:bg-[#735643] transition rounded-sm shadow-sm">
-                預約專屬試穿
-            </a>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#collection" class="bg-[#D4AF37] text-white px-8 py-3.5 text-xs tracking-widest hover:bg-[#B3922E] transition duration-300 rounded-sm shadow-md font-medium">
+                    線上鑑賞明星婚紗
+                </a>
+                <a href="#booking" class="bg-white border border-[#FFB6C1] text-[#4A3F3A] px-8 py-3.5 text-xs tracking-widest hover:bg-[#FFF5F5] transition duration-300 rounded-sm font-medium">
+                    預約專屬沙龍試穿
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- 核心價值與工藝 (Craftsmanship) -->
-    <section id="about" class="py-20 px-6 max-w-6xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-2xl font-medium tracking-widest mb-2">極致匠心．極致信任</h2>
-            <div class="w-12 h-[1px] bg-[#8C6D58] mx-auto"></div>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-12 text-center">
-            <!-- 絲綢 -->
-            <div class="space-y-4 p-6 bg-white rounded-sm shadow-sm border border-[#F4EFEA]">
-                <div class="text-xs tracking-[0.2em] text-[#8C6D58] font-bold">MATERIAL</div>
-                <h3 class="text-lg font-medium">頂級御用絲綢</h3>
-                <p class="text-sm text-[#7A6A68] leading-relaxed font-light">
-                    如水般流淌的絲滑光澤，完美貼合妳的每一次呼吸，那是比誓言更溫柔的觸感。
-                </p>
-            </div>
-            <!-- 設計 -->
-            <div class="space-y-4 p-6 bg-white rounded-sm shadow-sm border border-[#F4EFEA]">
-                <div class="text-xs tracking-[0.2em] text-[#8C6D58] font-bold">DESIGN</div>
-                <h3 class="text-lg font-medium">業界頂尖設計師</h3>
-                <p class="text-sm text-[#7A6A68] leading-relaxed font-light">
-                    不盲從潮流，只專注於妳的獨特線條。用優雅的剪裁，襯托妳高貴的靈魂。
-                </p>
-            </div>
-            <!-- 裁縫 -->
-            <div class="space-y-4 p-6 bg-white rounded-sm shadow-sm border border-[#F4EFEA]">
-                <div class="text-xs tracking-[0.2em] text-[#8C6D58] font-bold">TAILOR</div>
-                <h3 class="text-lg font-medium">20年經驗裁縫師</h3>
-                <p class="text-sm text-[#7A6A68] leading-relaxed font-light">
-                    無數個日夜的專注，化為一針一線的守護。這是一件穿得上的信任，也是永恆。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 感性調性橫幅 (Concept) -->
-    <section id="concept" class="bg-[#F2ECE4] py-20 px-6 text-center">
-        <div class="max-w-2xl mx-auto space-y-6">
-            <h2 class="text-xl md:text-2xl font-light tracking-widest leading-relaxed">
-                「懂妳的珍貴，所以給妳最頂級的包覆。」
-            </h2>
-            <p class="text-sm text-[#7A6A68] leading-relaxed tracking-wider font-light">
-                愛情最美好的模樣，是雙眼對視時的甜蜜，和彼此交付的信任。<br>
-                穿上它，走向他。這一刻的溫暖，就是一輩子的永恆。
+    <!-- 品牌理念與三大工藝承諾 -->
+    <section id="about" class="py-24 px-6 bg-white border-b border-[#F5E6E8]">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-xs tracking-[0.3em] text-[#D4AF37] font-bold block mb-2">NING AROMA MANIFESTO</span>
+            <h2 class="text-2xl md:text-3xl font-normal tracking-widest mb-6 text-[#4A3F3A]">「懂妳的珍貴，所以給妳最頂級的包覆。」</h2>
+            <p class="text-sm md:text-base text-[#7A6A68] max-w-2xl mx-auto leading-relaxed tracking-wider mb-16 font-light">
+                愛情最美好的模樣，是雙眼對視時的甜蜜，和彼此交付的信任。<br>Ning Aroma 將無數個日夜的專注，化為一針一線的永恆守護。
             </p>
+
+            <div class="grid md:grid-cols-3 gap-12 text-left">
+                <div class="p-8 bg-[#FFFBFB] border border-[#F5E6E8] rounded-sm">
+                    <div class="text-[#D4AF37] text-xs font-bold tracking-[0.2em] mb-3">01 / MATERIAL</div>
+                    <h4 class="text-lg font-medium mb-3">重磅頂級真絲</h4>
+                    <p class="text-sm text-[#7A6A68] leading-relaxed font-light">如水般流淌的絲滑光澤，隨妳的步履搖曳。不僅是衣裳，更是比誓言更溫柔的肌膚觸感。</p>
+                </div>
+                <div class="p-8 bg-[#FFFBFB] border border-[#F5E6E8] rounded-sm">
+                    <div class="text-[#D4AF37] text-xs font-bold tracking-[0.2em] mb-3">02 / DESIGN</div>
+                    <h4 class="text-lg font-medium mb-3">業界頂尖設計師</h4>
+                    <p class="text-sm text-[#7A6A68] leading-relaxed font-light">不盲從潮流，只專注於襯托妳的天生優雅。精準拿捏線條比例，讓高貴靈魂優雅盛開。</p>
+                </div>
+                <div class="p-8 bg-[#FFFBFB] border border-[#F5E6E8] rounded-sm">
+                    <div class="text-[#D4AF37] text-xs font-bold tracking-[0.2em] mb-3">03 / MASTERPIECE</div>
+                    <h4 class="text-lg font-medium mb-3">20年巨擘裁縫</h4>
+                    <p class="text-sm text-[#7A6A68] leading-relaxed font-light">一針一線皆是由經年累月的匠心累積。立體剪裁完美包覆身形，這是穿得上的極致信任。</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 預約表單 (Contact Form) -->
-    <section id="contact" class="py-20 px-6 max-w-md mx-auto">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl font-medium tracking-widest mb-2">開啟妳的永恆旅程</h2>
-            <p class="text-xs text-[#7A6A68] tracking-wider mt-1">填寫下方表單，預約一對一頂級訂製諮詢</p>
+    <!-- 5款主力商品推薦區 (電商核心轉換漏斗) -->
+    <section id="collection" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs tracking-[0.3em] text-[#D4AF37] font-bold block mb-2">THE ACTIVE STARLIGHT</span>
+            <h2 class="text-3xl font-light tracking-widest">本季主打：精選5款首席婚紗</h2>
+            <p class="text-xs text-[#7A6E6A] tracking-wider mt-2 font-light">兼具實用好看、完美包覆與線上下單功能的高轉換明星單品</p>
+            <div class="w-12 h-[1px] bg-[#D4AF37] mx-auto mt-4"></div>
         </div>
-        
-        <form class="space-y-6 bg-white p-8 rounded-sm shadow-sm border border-[#EAE3DA]" onsubmit="event.preventDefault(); alert('感謝您的預約，我們將有專人與您聯繫！');">
-            <div>
-                <label class="block text-xs tracking-wider mb-2 font-medium">新娘姓名</label>
-                <input type="text" required class="w-full border border-[#EAE3DA] px-4 py-2 text-sm focus:outline-none focus:border-[#8C6D58] bg-[#FAF8F5]">
-            </div>
-            <div>
-                <label class="block text-xs tracking-wider mb-2 font-medium">聯絡電話</label>
-                <input type="tel" required class="w-full border border-[#EAE3DA] px-4 py-2 text-sm focus:outline-none focus:border-[#8C6D58] bg-[#FAF8F5]">
-            </div>
-            <div>
-                <label class="block text-xs tracking-wider mb-2 font-medium">預計婚期</label>
-                <input type="date" class="w-full border border-[#EAE3DA] px-4 py-2 text-sm focus:outline-none focus:border-[#8C6D58] bg-[#FAF8F5]">
-            </div>
-            <button type="submit" class="w-full bg-[#8C6D58] text-white py-3 text-sm tracking-widest hover:bg-[#735643] transition rounded-sm font-medium">
-                送出預約申請
-            </button>
-        </form>
-    </section>
 
-    <!-- 頁尾 -->
-    <footer class="bg-[#4A3E3D] text-[#DCD4CC] py-8 text-center text-xs tracking-widest border-t border-[#3D3332]">
-        <p>© 2026 SILK & ROMANCE BRIDAL. ALL RIGHTS RESERVED.</p>
-    </footer>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- 款式 1：經典 A-Line -->
+            <div class="bg-white border border-[#F5E6E8] rounded-sm overflow-hidden flex flex-col justify-between group hover:shadow-md transition">
+                <div>
+                    <div class="relative aspect-[3/4] bg-[#F5E6E8] overflow-hidden">
+                        <img src="https://unsplash.com" alt="法式重磅真絲 A-Line" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 text-[#D4AF37] text-[10px] tracking-widest px-3 py-1 rounded-sm shadow-sm font-medium">極致柔美</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium tracking-wide">法式重磅真絲 A-Line 婚紗</h3>
+                        <p class="text-xs text-[#D4AF37] tracking-widest mt-1 mb-3">法式宮廷剪裁 / 頂級 40 姆米真絲</p>
+                        <p class="text-sm text-[#7A6E6A] font-light leading-relaxed">
+                            裙襬流淌如剔透的水波。精緻的一字領勾勒迷人鎖骨，將純粹的甜蜜化為無可替代的典雅風範。
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 flex justify-between items-center border-t border-[#FFF5F5] mt-4">
+                    <span class="text-base font-medium text-[#D4AF37]">$12,000 <span class="text-[10px] text-[#7A6E6A] font-light">(線上付訂)</span></span>
+                    <button onclick="addToCart('法式重磅真絲 A-Line (訂金)', 12000)" class="bg-[#4A3F3A] text-white px-5 py-2 text-xs tracking-widest hover:bg-[#D4AF37] transition rounded-sm">
+                        線上付訂
+                    </button>
+                </div>
+            </div>
 
-</body>
-</html>
+            <!-- 款式 2：立體魚尾 -->
+            <div class="bg-white border border-[#F5E6E8] rounded-sm overflow-hidden flex flex-col justify-between group hover:shadow-md transition">
+                <div>
+                    <div class="relative aspect-[3/4] bg-[#F5E6E8] overflow-hidden">
+                        <img src="https://unsplash.com" alt="暮光絲綢立體魚尾" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-4 left-4 bg-[#FFB6C1] text-white text-[10px] tracking-widest px-3 py-1 rounded-sm shadow-sm font-medium">工匠巨作</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-medium tracking-wide">暮光絲綢立體修身魚尾</h3>
+                        <p class="text-xs text-[#D4AF37] tracking-widest mt-1 mb-3">法式貼身修飾 / 美背弧線設計</p>
+                        <p class="text-sm text-[#7A6E6A] font-light leading-relaxed">
+                            二十年資深裁縫親自立體裁剪，對身形曲線極具包覆感。絲綢獨有的高貴柔光隨身搖曳，綻放無可取代的悸動。
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 flex justify-between items-center border-t border-[#FFF5F5] mt-4">
