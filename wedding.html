@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頂級絲綢婚紗 | 織進一生的甜蜜與永恆</title>
+    <!-- 引入 Tailwind CSS 實現精緻現代感排版 -->
+    <script src="https://tailwindcss.com"></script>
+    <style>
+        @import url('https://googleapis.com');
+        body { font-family: 'Noto Serif TC', serif; }
+    </style>
+</head>
+<body class="bg-[#FAF8F5] text-[#4A3E3D]">
+
+    <!-- 導覽列 -->
+    <nav class="py-6 px-8 flex justify-between items-center border-b border-[#EAE3DA] bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="text-xl font-bold tracking-widest text-[#8C6D58]">SILK & ROMANCE</div>
+        <div class="space-x-8 text-sm tracking-wide">
+            <a href="#about" class="hover:text-[#8C6D58] transition">關於工藝</a>
+            <a href="#concept" class="hover:text-[#8C6D58] transition">品牌理念</a>
+            <a href="#contact" class="hover:text-[#8C6D58] transition">預約體驗</a>
+        </div>
+    </nav>
+
+    <!-- 首頁主視覺區 (Hero Section) -->
+    <header class="relative h-[85vh] flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(250, 248, 245, 0.7), rgba(250, 248, 245, 0.5)), url('https://unsplash.com');">
+        <div class="text-center px-4 max-w-3xl">
+            <span class="text-xs uppercase tracking-[0.3em] text-[#8C6D58] font-medium block mb-4">The Pinnacle of Silk Gowns</span>
+            <h1 class="text-3xl md:text-5xl font-light tracking-wide leading-relaxed mb-6">
+                將一生的甜蜜，<br class="md:hidden">織進最溫柔的絲綢裡。
+            </h1>
+            <p class="text-sm md:text-base text-[#7A6A68] leading-relaxed tracking-wider mb-8 font-light">
+                頂級設計師與二十年巨擘裁縫攜手，用指尖的溫度，為妳定格永恆的幸福。
+            </p>
+            <a href="#contact" class="inline-block bg-[#8C6D58] text-white px-8 py-3 text-sm tracking-widest hover:bg-[#735643] transition rounded-sm shadow-sm">
+                預約專屬試穿
+            </a>
+        </div>
+    </header>
+
+    <!-- 核心價值與工藝 (Craftsmanship) -->
+    <section id="about" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl font-medium tracking-widest mb-2">極致匠心．極致信任</h2>
+            <div class="w-12 h-[1px] bg-[#8C6D58] mx-auto"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-12 text-center">
+            <!-- 絲綢 -->
+            <div class="space-y-4 p-6 bg-white rounded-sm shadow-sm border border-[#F4EFEA]">
+                <div class="text-xs tracking-[0.2em] text-[#8C6D58] font-bold">MATERIAL</div>
+                <h3 class="text-lg font-medium">頂級御用絲綢</h3>
+                <p class="text-sm text-[#7A6A68] leading-relaxed font-light">
+                    如水般流淌的絲滑光澤，完美貼合妳的每一次呼吸，那是比誓言更溫柔的觸感。
+                </p>
+            </div>
+            <!-- 設計 -->
+            <div class="space-y-4 p-6 bg-white rounded-sm shadow-sm border border-[#F4EFEA]">
+                <div class="text-xs tracking-[0.2em] text-[#8C6D58] font-bold">DESIGN</div>
+                <h3 class="text-lg font-medium">業界頂尖設計師</h3>
+                <p class="text-sm text-[#7A6A68] leading-relaxed font-light">
+                    不盲從潮流，只專注於妳的獨特線條。用優雅的剪裁，襯托妳高貴的靈魂。
+                </p>
+            </div>
+            <!-- 裁縫 -->
+            <div class="space-y-4 p-6 bg-white rounded-sm shadow-sm border border-[#F4EFEA]">
+                <div class="text-xs tracking-[0.2em] text-[#8C6D58] font-bold">TAILOR</div>
+                <h3 class="text-lg font-medium">20年經驗裁縫師</h3>
+                <p class="text-sm text-[#7A6A68] leading-relaxed font-light">
+                    無數個日夜的專注，化為一針一線的守護。這是一件穿得上的信任，也是永恆。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 感性調性橫幅 (Concept) -->
+    <section id="concept" class="bg-[#F2ECE4] py-20 px-6 text-center">
+        <div class="max-w-2xl mx-auto space-y-6">
+            <h2 class="text-xl md:text-2xl font-light tracking-widest leading-relaxed">
+                「懂妳的珍貴，所以給妳最頂級的包覆。」
+            </h2>
+            <p class="text-sm text-[#7A6A68] leading-relaxed tracking-wider font-light">
+                愛情最美好的模樣，是雙眼對視時的甜蜜，和彼此交付的信任。<br>
+                穿上它，走向他。這一刻的溫暖，就是一輩子的永恆。
+            </p>
+        </div>
+    </section>
+
+    <!-- 預約表單 (Contact Form) -->
+    <section id="contact" class="py-20 px-6 max-w-md mx-auto">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl font-medium tracking-widest mb-2">開啟妳的永恆旅程</h2>
+            <p class="text-xs text-[#7A6A68] tracking-wider mt-1">填寫下方表單，預約一對一頂級訂製諮詢</p>
+        </div>
+        
+        <form class="space-y-6 bg-white p-8 rounded-sm shadow-sm border border-[#EAE3DA]" onsubmit="event.preventDefault(); alert('感謝您的預約，我們將有專人與您聯繫！');">
+            <div>
+                <label class="block text-xs tracking-wider mb-2 font-medium">新娘姓名</label>
+                <input type="text" required class="w-full border border-[#EAE3DA] px-4 py-2 text-sm focus:outline-none focus:border-[#8C6D58] bg-[#FAF8F5]">
+            </div>
+            <div>
+                <label class="block text-xs tracking-wider mb-2 font-medium">聯絡電話</label>
+                <input type="tel" required class="w-full border border-[#EAE3DA] px-4 py-2 text-sm focus:outline-none focus:border-[#8C6D58] bg-[#FAF8F5]">
+            </div>
+            <div>
+                <label class="block text-xs tracking-wider mb-2 font-medium">預計婚期</label>
+                <input type="date" class="w-full border border-[#EAE3DA] px-4 py-2 text-sm focus:outline-none focus:border-[#8C6D58] bg-[#FAF8F5]">
+            </div>
+            <button type="submit" class="w-full bg-[#8C6D58] text-white py-3 text-sm tracking-widest hover:bg-[#735643] transition rounded-sm font-medium">
+                送出預約申請
+            </button>
+        </form>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-[#4A3E3D] text-[#DCD4CC] py-8 text-center text-xs tracking-widest border-t border-[#3D3332]">
+        <p>© 2026 SILK & ROMANCE BRIDAL. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
 
